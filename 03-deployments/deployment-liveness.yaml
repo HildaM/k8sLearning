@@ -17,5 +17,11 @@ spec:
         app: hellok8s
     spec:
       containers:
-        - image: sotaquan/hellok8s:v2
+        - image: sotaquan/hellok8s:liveness
           name: hellok8s-container
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 3000
+            initialDelaySeconds: 3
+            periodSeconds: 3
