@@ -1,0 +1,13 @@
+# 还想着能不能用service将虚拟机的dashboard给代理出去，结果失败了。。。
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-dashboard-nodeport
+spec:
+  type: NodePort
+  selector:
+    app: dashboard-metrics-scraper
+  ports:
+    - port: 8000
+      nodePort: 30001
